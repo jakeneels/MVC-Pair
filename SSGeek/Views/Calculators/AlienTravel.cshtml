@@ -1,0 +1,55 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            padding-bottom: 30px;
+        }
+    </style>
+
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <h1>Alien Age Calculator</h1>
+        <form method="get" action=@Url.Action("AlienTravelResult", "Calculators")>
+
+            @*@RenderSection("PlanetChoice")*@*
+            Choose a Planet:
+            <select name="Planet">
+                <option value="mercury">Mercury</option>
+                <option value="venus">Venus  </option>
+                <option value="mars">Mars   </option>
+                <option value="jupiter">Jupiter</option>
+                <option value="saturn">Saturn </option>
+                <option value="uranus">Uranus </option>
+                <option value="neptune">Neptune</option>
+                <option value="pluto">Pluto  </option>
+            </select>
+
+            <select name="Vehicle">
+                <option value="walking">Walking</option>
+                <option value="car">Car</option>
+                <option value="bullet train">Bullet Train</option>
+                <option value="boeing 747">Boeing 747</option>
+                <option value="concorde">Concorde</option>
+            </select>
+
+            Enter your Earth Age: <input value="EarthAge" type="number" name="EarthAge" /><br />
+
+            <button type="submit" value="Calculate Travel">Calculate Travel</button>
+
+        </form>
+    </div>
+</body>
+</html>

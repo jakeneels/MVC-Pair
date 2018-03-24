@@ -22,7 +22,9 @@
         <ul>
             <li>@Html.ActionLink("Alien Age", "AlienAge", "Calculators")</li>
             <li>@Html.ActionLink("Alien Weight", "AlienWeight", "Calculators")</li>
-            <li>@Html.ActionLink("Alien Travel Time", "AlienTravel", "Calculators")</li>            
+            <li>@Html.ActionLink("Alien Travel Time", "AlienTravel", "Calculators")</li>
+            <li>@Html.ActionLink("Space Forum", "Forum", "Forum")</li>
+            <li>@Html.ActionLink("Space Store", "Index", "Store")</li>
 
         </ul>
     </nav>
@@ -31,3 +33,17 @@
 
 </body>
 </html>
+
+@section PlanetChoice{
+
+    Choose a Planet:
+    <select name="Planet">
+        <option value="Mercury">Mercury</option>
+        <option value="Venus">Venus  </option>
+        <option value="Mars">Mars   </option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Saturn">Saturn </option>
+        <option value="Uranus">Uranus </option>
+        <option value="Neptune">Neptune</option>
+        <option value="Pluto">Pluto  </option>
+    </select>}

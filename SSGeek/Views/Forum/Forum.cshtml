@@ -1,0 +1,61 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model List<SSGeek.Models.ForumPost>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            background-color: white;
+        }
+
+        .top {
+            text-align: center;
+        }
+
+        .post {
+            text-align: left;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+            .post:nth-child(odd) {
+                background-color: lightgray;
+            }
+
+        .title {
+            font-weight: bolder;
+            font-size: 16px;
+        }
+
+        .posttext {
+            padding-left: 10px;
+        }
+
+        .message {
+            padding-top: 5px;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <div class="top"><h2> Solar System Geek Forum</h2> <h4>@Html.ActionLink("Post A Message", "NewPost")</h4></div>
+
+        @foreach (var post in Model)
+        {
+            <div class="post">
+                <div class="posttext">
+                    <div class="title">@post.Subject</div>
+                    by @post.Username on @post.PostDate.ToShortDateString() at @post.PostDate.ToShortTimeString();<br />
+                    <div class="message"> @post.Message</div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</body>
+</html>

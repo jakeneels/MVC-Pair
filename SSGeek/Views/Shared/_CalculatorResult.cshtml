@@ -1,0 +1,42 @@
+﻿@{
+  Layout = "_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        .calculator{
+            background-color: white;
+            width:80%;
+            height:400px;
+            display:block;
+        }
+        .left {
+            float: left;
+            display: inline-block;
+        }
+
+        .img {
+            padding:1% 1% 1% 1%;
+            width: 23%;
+            height: auto;
+        }
+
+        .txt {
+            padding-top: 3%;
+            padding-left: 1%;
+        }
+    </style>
+    <title></title>
+</head>
+<body >
+
+    <div class="calculator">
+        <img class="left img" src="~/Content/img/@(Model.Planet+".jpg")">
+        @RenderBody()
+    </div>
+
+</body>
+</html>

@@ -126,6 +126,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CalculatorsController.cs" />
+    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlanetsController.cs" />
     <Compile Include="DAL\ForumPostSqlDAL.cs" />
@@ -136,6 +137,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AlienAgeModel.cs" />
+    <Compile Include="Models\AlienTravelModel.cs" />
+    <Compile Include="Models\AlienWeightModel.cs" />
     <Compile Include="Models\ForumPost.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\TriviaModel.cs" />
@@ -146,6 +149,17 @@
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Planets\Index.cshtml" />
+    <Content Include="Views\Calculators\AlienWeight.cshtml" />
+    <Content Include="Views\Calculators\AlienWeightResult.cshtml" />
+    <Content Include="Views\Shared\_CalculatorResult.cshtml" />
+    <Content Include="Views\Calculators\AlienAge.cshtml" />
+    <Content Include="Views\Calculators\AlienAgeResult.cshtml" />
+    <Content Include="Views\Shared\PlanetSelect.cshtml" />
+    <Content Include="Views\Calculators\AlienTravel.cshtml" />
+    <Content Include="Views\Calculators\AlienTravelResult.cshtml" />
+    <Content Include="Views\Forum\NewPost.cshtml" />
+    <Content Include="Views\Forum\Forum.cshtml" />
+    <Content Include="Views\Calculators\Store\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -155,7 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Calculators\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <PropertyGroup>

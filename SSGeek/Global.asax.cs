@@ -1,7 +1,9 @@
 ﻿using Ninject;
 using Ninject.Web.Common.WebHost;
+using SSGeek.DAL;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,25 +11,28 @@ using System.Web.Routing;
 
 namespace SSGeek
 {
-    public class MvcApplication : NinjectHttpApplication
+  public class MvcApplication : NinjectHttpApplication
+  {
+    protected override void OnApplicationStarted()
     {
-        protected override void OnApplicationStarted()
-        {
-            base.OnApplicationStarted();
+      base.OnApplicationStarted();
 
-            AreaRegistration.RegisterAllAreas();
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-        }
-        
-        // Configure the dependency injection container.
-        protected override IKernel CreateKernel()
-        {
-            var kernel = new StandardKernel();
-
-            // Set up the bindings
-            //kernel.Bind<IInterface>.To<Class>();
-
-            return kernel;
-        }
+      AreaRegistration.RegisterAllAreas();
+      RouteConfig.RegisterRoutes(RouteTable.Routes);
     }
+
+    // Configure the dependency injection container.
+    protected override IKernel CreateKernel()
+    {
+      var kernel = new StandardKernel();
+
+      //string connectionString = ConfigurationManager.ConnectionStrings["DB"].ConnectionString();
+
+      kernel.Bind<IForumPostDAL>().To<ForumPostSqlDAL>();
+      // Set up the bindings
+      //kernel.Bind<IInterface>.To<Class>();
+
+      return kernel;
+    }
+  }
 }

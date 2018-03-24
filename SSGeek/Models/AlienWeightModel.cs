@@ -5,58 +5,56 @@ using System.Web;
 
 namespace SSGeek.Models
 {
-  public class AlienAgeModel
+  public class AlienWeightModel
   {
-    private double _age;
-    private double _planetage;
+    private double _weight;
+    private double _planetWeight;
     public string Planet { get; set; }
-    public double Age
-    {
-      get { return _age; }
-      set { _age = value; }
+    public double Weight {
+      get { return _weight; }
+      set { _weight = value; }
     }
 
-    public double PlanetAge
-    {
+    public double PlanetWeight {
       get
       {
-        return _planetage;
+        return _planetWeight;
       }
     }
 
-    public void SetPlanetAge()
+    public void SetPlanetWeight()
     {
       if (Planet.ToLower() == "mercury")
       {
-        _planetage = _age * 4.153;
+        _planetWeight = _weight * 0.37;
       }
       if (Planet.ToLower() == "venus")
       {
-        _planetage = _age * 1.626;
+        _planetWeight = _weight * 0.9;
       }
       if (Planet.ToLower() == "mars")
       {
-        _planetage = _age *0.532;
+        _planetWeight = _weight * 0.38;
       }
       if (Planet.ToLower() == "jupiter")
       {
-        _planetage = _age / 11.862;
+        _planetWeight = _weight * 2.65;
       }
       if (Planet.ToLower() == "saturn")
       {
-        _planetage = _age /29.456;
+        _planetWeight = _weight * 1.13;
       }
       if (Planet.ToLower() == "uranus")
       {
-        _planetage = _age / 84.07;
+        _planetWeight = _weight * 1.09;
       }
       if (Planet.ToLower() == "neptune")
       {
-        _planetage = _age /164.81;
+        _planetWeight = _weight * 1.43;
       }
       if (Planet.ToLower() == "pluto")
       {
-        _planetage = _age / 247.7;
+        _planetWeight = _weight * 0.04;
       }
     }
   }
