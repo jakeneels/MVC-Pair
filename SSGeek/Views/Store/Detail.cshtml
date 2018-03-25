@@ -1,0 +1,85 @@
+﻿@model SSGeek.Models.CartItem
+@{ 
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h2 {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .product {
+            display: block;
+            clear: both;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            padding-left: 5px;
+        }
+
+        .productImg {
+            float: left;
+            height: auto;
+            width: 180px;
+        }
+
+        .container {
+            background-color: white;
+            padding-bottom: 90px;
+        }
+
+        .title {
+            font-weight: bolder;
+            font-size: 20px;
+        }
+
+        .price {
+            padding-top: 5px;
+            font-weight: bold;
+            color: cornflowerblue;
+        }
+        form{
+            display:block;
+            padding-top:10px;
+            float:left;
+        }
+        button {
+            display: inline-block;
+            margin-left: 22px !important;
+            background-color: cornflowerblue;
+            color: white;
+            padding-top: 3px;
+        }
+        .quantity {
+            display: inline-block;
+            padding-top: 3px;
+        }
+        
+    </style>
+
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Solar System Geek Gift Shop</h2>
+
+        @{
+          var cartItem = Model;
+        }
+
+        <img class="productImg" src="~/Content/img/@cartItem.Product.ImageName" />
+        <div class="title">@cartItem.Product.Name</div>
+        <div class="price">@cartItem.Product.Price.ToString("C")</div>
+        <div class="description">@cartItem.Product.Description</div>
+         
+        <form method="post" action="@Url.Action("AddToCart","Store", new { cartItem.Product.ProductId }, null)">
+            <div class="quantity">Quantity to buy: <input type="number" name="quantity" /></div> <button type="submit">Add to Cart</button>
+        </form>
+
+    </div>
+</body>
+</html>

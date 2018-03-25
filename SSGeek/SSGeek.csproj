@@ -129,6 +129,7 @@
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlanetsController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="DAL\ForumPostSqlDAL.cs" />
     <Compile Include="DAL\IForumPostDAL.cs" />
     <Compile Include="DAL\IProductDAL.cs" />
@@ -139,8 +140,10 @@
     <Compile Include="Models\AlienAgeModel.cs" />
     <Compile Include="Models\AlienTravelModel.cs" />
     <Compile Include="Models\AlienWeightModel.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\ForumPost.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\TriviaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -160,6 +163,8 @@
     <Content Include="Views\Forum\NewPost.cshtml" />
     <Content Include="Views\Forum\Forum.cshtml" />
     <Content Include="Views\Calculators\Store\Index.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\Store\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

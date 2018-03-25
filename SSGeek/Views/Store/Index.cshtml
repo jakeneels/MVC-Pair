@@ -1,0 +1,71 @@
+﻿@model List<SSGeek.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h2 {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .product {
+            display: block;
+            clear: both;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            padding-left: 5px;
+        }
+
+        .productImg {
+            float: left;
+            height: auto;
+            width: 180px;
+        }
+
+        .container {
+            background-color: white;
+            padding-bottom: 30px;
+            height: 610px;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-weight: bolder;
+            font-size: 16px;
+        }
+
+        .price {
+            padding-top: 5px;
+            font-weight: bold;
+            color: cornflowerblue;
+        }
+    </style>
+
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Solar System Geek Gift Shop</h2>
+        @foreach (var product in Model)
+        {
+            <div class="product">
+                <a href="@Url.Action("Detail", "Store", new { product.ProductId }, null)">
+                    <img class="productImg" src="~/Content/img/@product.ImageName" />
+                    <div class="title">@product.Name</div>
+                </a>
+                <div class="price">@product.Price.ToString("C")</div>
+
+            </div>
+
+        }
+
+    </div>
+</body>
+</html>
