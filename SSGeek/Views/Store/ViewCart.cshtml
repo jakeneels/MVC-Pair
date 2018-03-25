@@ -1,0 +1,63 @@
+﻿@model SSGeek.Models.ShoppingCart
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .white {
+            background-color: white !important;
+        }
+        .productImg{
+            width:50px;
+            height:50px;
+        }
+    </style>
+
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    @{
+        var cart = Model.Cart;
+    }
+
+    <div class="container white">
+
+        @*<h2>Solar System Geek Gift Shop</h2>*@
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-5">Name</div>
+            <div class="col-md-1">Price</div>
+            <div class="col-md-1">Qty. </div>
+            <div class="col-md-2">Total</div>
+        </div>
+
+        @*@foreach (var item in cart)
+        {
+            <div class="row">
+                <div class="product">
+                    <img class="col-md-3 productImg" src="~/Content/img/@item.Product.ImageName" />
+
+                     <a href="@Url.Action("Detail", "Store", new { item. }, null)"> </a>
+                    <div class="col-md-5">@item.Product.Name </div>
+
+                    <div class="col-md-1">@item.Product.Price.ToString("C")</div>
+
+                    <div class="col-md-1">@item.Quantity</div>
+                    <div class="col-md-2">@item.Total</div>
+                </div>
+            </div>}*@
+        <div class="row">
+            Grand Total: <div class="col-md-12">@Model.Total</div>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

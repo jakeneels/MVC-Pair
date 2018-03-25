@@ -13,7 +13,7 @@ namespace SSGeek.Models
     {
       get
       {
-        return CalcTotal();
+        return CalcGrandTotal();
       }
     }
 
@@ -41,15 +41,15 @@ namespace SSGeek.Models
       {
         _cart.Add(item);
       }
-      _cart.Add(item);
+
     }
 
-    private double CalcTotal()
+    private double CalcGrandTotal()
     {
       double total = 0;
       foreach (var item in _cart)
       {
-        total += item.Product.Price * item.Quantity;
+        total += item.Total;
       }
 
       return total;

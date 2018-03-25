@@ -35,16 +35,37 @@ namespace SSGeek.Controllers
     {
       ProductSqlDAL _dal = new ProductSqlDAL();
       var queryString = HttpContext.Request.QueryString;
-      var qs = queryString.GetValues("quantity");
-
-      item.Quantity = int.Parse(qs.ToString());
+      var qs = queryString.GetValues("productId");
       
+      
+      item.Product = _dal.GetProduct(int.Parse(qs[0]));
 
-      item.Product = _dal.GetProduct(int.Parse(item.Product.ProductId.ToString()));
+      ShoppingCart cart = GetActiveShoppingCart();
+      cart.AddToCart(item);
 
+      return RedirectToAction("ViewCart");
+    }
 
+    public ActionResult ViewCart()
+    {
+      ShoppingCart cart = GetActiveShoppingCart();
+      return View(cart);
+    }
 
-      return RedirectToAction("Index");
+    private ShoppingCart GetActiveShoppingCart()
+    {
+      ShoppingCart cart = null;
+
+      if(Session["ShoppingCart"] == null)
+      {
+        cart = new ShoppingCart();
+        Session["ShoppingCart"] = cart;
+      }
+      else
+      {
+        cart = Session["ShoppingCart"] as ShoppingCart;
+      }
+      return cart;
     }
 
   }
