@@ -16,6 +16,11 @@ namespace SSGeek.Controllers
     //}
     public ActionResult Forum()
     {
+      if (TempData["message"] == null)
+      {
+        TempData["message"] = "Welcome!";
+      }
+
       ForumPostSqlDAL _dal = new ForumPostSqlDAL();
 
       var model = _dal.GetAllPosts();
@@ -32,9 +37,26 @@ namespace SSGeek.Controllers
     public ActionResult NewPost(ForumPost model)
     {
       ForumPostSqlDAL _dal = new ForumPostSqlDAL();
-      _dal.SaveNewPost(model);
+
+      bool successful = _dal.SaveNewPost(model);
+
+      //If successful:
+
+      if (successful)
+      {
+        SetMessage("Your post was successfully added");
+      }
+      else
+      {
+        SetMessage("There was an error adding your post!");
+      }
 
       return RedirectToAction("Forum");
+    }
+
+    private void SetMessage(string text)
+    {
+      TempData["message"] = text;
     }
   }
 }

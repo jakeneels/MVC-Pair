@@ -1,6 +1,9 @@
-﻿@{ Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@using SSGeek.Controllers;
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model List<SSGeek.Models.ForumPost>
+
 
 <!DOCTYPE html>
 <html>
@@ -43,6 +46,8 @@
 <body>
     <div class="container">
         <div class="top"><h2> Solar System Geek Forum</h2> <h4>@Html.ActionLink("Post A Message", "NewPost")</h4></div>
+        @Html.Partial("Message");
+
 
         @foreach (var post in Model)
         {
